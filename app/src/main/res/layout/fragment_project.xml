@@ -15,10 +15,10 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card1"
+                android:id="@+id/project_card1"
                 style="@style/ThemeOverlay.App.Card"
                 android:layout_width="350dp"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="20dp"
@@ -42,12 +42,84 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This Product was made for giving the demo of authentication in android app using firebase"
+                    android:text="This Application was made for giving the demo of authentication in android app using firebase."
+                    android:textSize="17dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="10dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/project_card2"
+                style="@style/ThemeOverlay.App.Card"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_card1"
+                app:layout_constraintVertical_bias="0.021"
+                tools:ignore="KeyboardInaccessibleWidget">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team17"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This application was made for digital agency named Team17 which will be used by clients of Team17 to send product development request."
                     android:textSize="17dp"
                     android:textColor="@color/black"
                     android:layout_marginTop="35dp"
                     android:layout_marginLeft="10dp"/>
 
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/project_card3"
+                style="@style/ThemeOverlay.App.Card"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_card2"
+                app:layout_constraintVertical_bias="0.038"
+                tools:ignore="KeyboardInaccessibleWidget">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="App06_29"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This application was made for showing the implementation of basic functionality in Android."
+                    android:textSize="17dp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="10dp"/>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

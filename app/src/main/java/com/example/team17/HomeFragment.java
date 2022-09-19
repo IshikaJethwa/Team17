@@ -18,7 +18,7 @@ public class HomeFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    CardView cd1,cd2,cd3,cd4,cd5,cd6;
+    CardView cd1,cd2,cd3,cd4;
     Object MainActivity;
 
     public HomeFragment() {
@@ -44,8 +44,7 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
