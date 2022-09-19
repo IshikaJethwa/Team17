@@ -1,5 +1,7 @@
 package com.example.team17;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,12 +9,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    Button logOut_btn;
+    FirebaseAuth mAuth;
     private String mParam1;
     private String mParam2;
 
@@ -39,10 +47,22 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view=inflater.inflate(R.layout.fragment_profile, container, false);
         ((MainActivity) getActivity()).setTitle("Profile");
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+
+        logOut_btn = view.findViewById(R.id.logOut_btn);
+        mAuth = FirebaseAuth.getInstance();
+
+        logOut_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Toast.makeText(getActivity(), "Logout SuccessFUlly !", Toast.LENGTH_SHORT).show();
+                ProfileFragment.this.startActivity(new Intent(getActivity(),LoginActivity.class));
+            }
+        });
+        return view;
     }
 }

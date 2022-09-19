@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    Button logOut_btn;
+
     FirebaseAuth mAuth;
 
     @SuppressLint("NonConstantResourceId")
@@ -33,14 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        /*logOut_btn = findViewById(R.id.logOut_btn);
-
-        logOut_btn.setOnClickListener(view -> {
-            mAuth.signOut();
-            Toast.makeText(MainActivity.this, "Logout SuccessFUlly !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
-        });*/
 
         FragmentManager ft = getSupportFragmentManager();
         ft.beginTransaction()
