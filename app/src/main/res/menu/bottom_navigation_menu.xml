@@ -1,0 +1,24 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+    <item
+        android:id="@+id/project"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_folder_24"
+        android:title="Project"/>
+    <item
+        android:id="@+id/requests"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_article_24"
+        android:title="Requests"/>
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile"/>
+
+</menu>

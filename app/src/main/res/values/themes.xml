@@ -22,4 +22,9 @@
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurfaceVariant">@color/white</item>
     </style>
+    <style name="ThemeOverlay.App.Card" parent="">
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+    </style>
 </resources>
