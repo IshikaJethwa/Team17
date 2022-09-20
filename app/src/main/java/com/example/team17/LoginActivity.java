@@ -9,15 +9,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
@@ -34,6 +38,9 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText temail, tpass;
     TextInputLayout em_label, pas_label;
     private FirebaseAuth mAuth;
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+    ImageView googlebtn;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -48,6 +55,25 @@ public class LoginActivity extends AppCompatActivity {
         tpass = findViewById(R.id.password1);
         em_label = findViewById(R.id.uname_label);
         pas_label = findViewById(R.id.pass_label);
+        googlebtn = findViewById(R.id.google_sign_in);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this,gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct != null){
+            finish();
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+        googlebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               signIn2();
+            }
+
+
+        });
 
         ActionBar aBar;
         aBar = getSupportActionBar();
@@ -64,6 +90,28 @@ public class LoginActivity extends AppCompatActivity {
                 signIn();
             }
         });
+    }
+    public void signIn2(){
+        Intent signInIntent = gsc.getSignInIntent();
+        startActivityForResult(signInIntent,1000);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1000){
+            Task <GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try{
+
+                finish();
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+                task.getResult(ApiException.class);
+
+            }catch (ApiException e){
+               // Toast.makeText(LoginActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
